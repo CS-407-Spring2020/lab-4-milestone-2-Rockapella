@@ -109,7 +109,24 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("PlaceInfo", listAddress.get(0).toString());
                 address = "Address: \n";
 
-                if
+                if (listAddress.get(0).getSubThoroughfare() != null) {
+                    address += listAddress.get(0).getSubThoroughfare() + " ";
+                }
+                if (listAddress.get(0).getThoroughfare() != null) {
+                    address += listAddress.get(0).getThoroughfare() + "\n";
+                }
+                if (listAddress.get(0).getSubThoroughfare() != null) {
+                    address += listAddress.get(0).getSubThoroughfare() + " ";
+                }
+                if (listAddress.get(0).getSubThoroughfare() != null) {
+                    address += listAddress.get(0).getSubThoroughfare() + " ";
+                }
+                if (listAddress.get(0).getSubThoroughfare() != null) {
+                    address += listAddress.get(0).getSubThoroughfare() + " ";
+                }
+                if (listAddress.get(0).getSubThoroughfare() != null) {
+                    address += listAddress.get(0).getSubThoroughfare() + " ";
+                }
             }
 
         }

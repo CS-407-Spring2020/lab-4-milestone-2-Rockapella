@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
-
+                updateLocationInfo(location);
             }
 
             @Override
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
             if (location != null) {
-                // We will add code to update location info here
+                updateLocationInfo(location);
             }
         }
     }
@@ -115,20 +116,22 @@ public class MainActivity extends AppCompatActivity {
                 if (listAddress.get(0).getThoroughfare() != null) {
                     address += listAddress.get(0).getThoroughfare() + "\n";
                 }
-                if (listAddress.get(0).getSubThoroughfare() != null) {
-                    address += listAddress.get(0).getSubThoroughfare() + " ";
+                if (listAddress.get(0).getLocality() != null) {
+                    address += listAddress.get(0).getLocality() + " ";
                 }
-                if (listAddress.get(0).getSubThoroughfare() != null) {
-                    address += listAddress.get(0).getSubThoroughfare() + " ";
+                if (listAddress.get(0).getPostalCode() != null) {
+                    address += listAddress.get(0).getPostalCode() + " ";
                 }
-                if (listAddress.get(0).getSubThoroughfare() != null) {
-                    address += listAddress.get(0).getSubThoroughfare() + " ";
-                }
-                if (listAddress.get(0).getSubThoroughfare() != null) {
-                    address += listAddress.get(0).getSubThoroughfare() + " ";
+                if (listAddress.get(0).getCountryCode() != null) {
+                    address += listAddress.get(0).getCountryCode() + " ";
                 }
             }
 
+            TextView addressTextView = (TextView) findViewById(R.id.address);
+            addressTextView.setText(address);
+
+        } catch (IOException e){
+            e.printStackTrace();
         }
 
 
